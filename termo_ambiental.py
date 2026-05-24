@@ -201,6 +201,9 @@ class Celula:
                 self._bouncing = False
 
     # ── Transformações ────────────────────────────────────────────────
+    def redimensionar(self, x, y, size):
+        self.base = pygame.Rect(x, y, size, size)
+        
     def _scale_pop(self) -> float:
         if not self._popping:
             return 1.0
@@ -345,6 +348,23 @@ class Tabuleiro:
             c.letra  = ""
             c.estado = "vazio"
 
+    def atualizar_area(self, area):
+        self.area = area
+        cw = (self.area.w - CELL_MARGIN * (self.palavra_len + 1)) // self.palavra_len
+        ch = (self.area.h - CELL_MARGIN * (self.max_tent    + 1)) // self.max_tent
+        self.cell_size = min(cw, ch, CELL_MAX_SIZE)
+
+        gw = self.palavra_len * self.cell_size + (self.palavra_len - 1) * CELL_MARGIN
+        gh = self.max_tent    * self.cell_size + (self.max_tent    - 1) * CELL_MARGIN
+        ox = self.area.x + (self.area.w - gw) // 2
+        oy = self.area.y + (self.area.h - gh) // 2
+
+        for row in range(self.max_tent):
+            for col in range(self.palavra_len):
+                x = ox + col * (self.cell_size + CELL_MARGIN)
+                y = oy + row * (self.cell_size + CELL_MARGIN)
+                self.celulas[row][col].redimensionar(x, y, self.cell_size)
+
     def get_tentativa(self) -> str:
         return "".join(c.letra for c in self.celulas[self.tentativa_atual])
 
@@ -437,6 +457,11 @@ class TecladoVirtual:
         hier = {"correta": 3, "presente": 2, "ausente": 1, "": 0}
         if hier.get(estado, 0) > hier.get(self.estados.get(letra, ""), 0):
             self.estados[letra] = estado
+    
+    def atualizar_area(self, area: pygame.Rect):
+        self.area = area
+        self.rects.clear()
+        self._build()
 
     def _cor_tecla(self, key: str) -> tuple:
         if key in ("ENTER", "<<"):
@@ -586,6 +611,31 @@ class Flashcard:
     def update(self, dt):
         self._t = min(self._t + dt, self.DUR)
 
+    def atualizar_area(self, sw, sh):
+        self.sw, self.sh = sw, sh
+        self.card_w = min(570, sw - 56)
+        
+        # Refaz a quebra de texto com a nova largura
+        self.linhas = quebrar_texto(self.f_ctx, self.contexto, self.card_w - self.PAD * 2)
+        
+        # Recalcula a altura total
+        h  = self.PAD
+        h += self.f_titulo.get_height()  + 16
+        h += 1 + 12
+        h += self.f_label.get_height()   + 5
+        h += self.f_palavra.get_height() + 14
+        h += 1 + 10
+        for _ in self.linhas:
+            h += self.f_ctx.get_height() + 5
+        h += 12 + 1 + 10
+        h += self.f_hint.get_height() + 14
+        h += self.PAD
+
+        self.card_h = h
+        self.rect   = pygame.Rect((sw - self.card_w) // 2,
+                                   (sh - self.card_h) // 2,
+                                   self.card_w, self.card_h)
+
     def draw(self, surface):
         prog  = ease_out_cubic(self._t / self.DUR)
         off_y = int(50 * (1 - prog))
@@ -658,7 +708,7 @@ class Jogo:
 
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
+        self.screen = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.RESIZABLE)
         pygame.display.set_caption("Termo Ambiental")
         self.clock = pygame.time.Clock()
 
@@ -714,12 +764,13 @@ class Jogo:
 
         fs = max(22, min(40, int(CELL_MAX_SIZE * 0.50)))
         self.f_cel = carregar_fonte(fs, negrito=True)
+        w, h = self.screen.get_size()
 
         board_y    = HEADER_H + 8
-        board_h    = SCREEN_H - HEADER_H - KEYBOARD_H - 16
-        board_area = pygame.Rect(20, board_y, SCREEN_W - 40, board_h)
-        kbd_area   = pygame.Rect(10, SCREEN_H - KEYBOARD_H + 5,
-                                  SCREEN_W - 20, KEYBOARD_H - 10)
+        board_h    = h - HEADER_H - KEYBOARD_H - 16
+        board_area = pygame.Rect(20, board_y, w - 40, board_h)
+        kbd_area   = pygame.Rect(10, h - KEYBOARD_H + 5,
+                                  w - 20, KEYBOARD_H - 10)
 
         self.tabuleiro  = Tabuleiro(self.p_len, MAX_TENTATIVAS, board_area)
         self.teclado    = TecladoVirtual(kbd_area)
@@ -812,17 +863,22 @@ class Jogo:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            
+            if event.type == pygame.VIDEORESIZE:
+                self._tratar_redimensionamento(event.w, event.h)
 
             if event.type == self.EV_FLASH:
                 pygame.time.set_timer(self.EV_FLASH, 0)
+                w, h = self.screen.get_size()
                 self.flashcard = Flashcard(
                     self.ganhou, self.p_orig, self.p_norm,
-                    self.contexto, SCREEN_W, SCREEN_H
+                    self.contexto, w, h
                 )
 
             if event.type == self.EV_CONFETE:
                 pygame.time.set_timer(self.EV_CONFETE, 0)
-                self.particulas.emitir(SCREEN_W // 2, SCREEN_H // 3, n=150)
+                w, h = self.screen.get_size()
+                self.particulas.emitir(w // 2, h // 3, n=150)
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if self.flashcard:
@@ -916,6 +972,35 @@ class Jogo:
             self.flashcard.draw(self.screen)
         pygame.display.flip()
 
+    def _tratar_redimensionamento(self, w, h):
+        global SCREEN_W, SCREEN_H
+        
+        # Limita um tamanho mínimo para não quebrar a UI
+        SCREEN_W = max(w, 400)
+        SCREEN_H = max(h, 600)
+        
+        self.screen = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.RESIZABLE)
+        self.bg     = self._criar_bg()  # Recria o gradiente com o novo tamanho
+
+        board_y    = HEADER_H + 8
+        board_h    = SCREEN_H - HEADER_H - KEYBOARD_H - 16
+        board_area = pygame.Rect(20, board_y, SCREEN_W - 40, board_h)
+        kbd_area   = pygame.Rect(10, SCREEN_H - KEYBOARD_H + 5,
+                                  SCREEN_W - 20, KEYBOARD_H - 10)
+
+        # Repassa o redimensionamento para os componentes
+        if self.tabuleiro:
+            self.tabuleiro.atualizar_area(board_area)
+            # Ajusta a fonte caso as células tenham ficado menores
+            fs = max(22, min(40, int(self.tabuleiro.cell_size * 0.50)))
+            self.f_cel = carregar_fonte(fs, negrito=True)
+            
+        if self.teclado:
+            self.teclado.atualizar_area(kbd_area)
+            
+        if self.flashcard:
+            self.flashcard.atualizar_area(SCREEN_W, SCREEN_H)
+        
     # ── Loop principal ────────────────────────────────────────────────
     def run(self):
         while True:
