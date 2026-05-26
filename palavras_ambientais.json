@@ -1,32 +1,226 @@
 [
-    {"palavra": "ARVORE", "contexto": "Fundamental para a purificação do ar, a árvore absorve CO₂ e libera oxigênio, sendo a base de todo ecossistema florestal."},
-    {"palavra": "CLIMA", "contexto": "Conjunto de condições atmosféricas que caracterizam uma região ao longo do tempo. As mudanças climáticas são a maior ameaça ambiental do século XXI."},
-    {"palavra": "BIOMA", "contexto": "Grande região do planeta com flora e fauna adaptadas às suas condições. O Brasil possui seis biomas: Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa e Pantanal."},
-    {"palavra": "LIXO", "contexto": "Resíduos sólidos descartados pelo ser humano. A gestão inadequada do lixo contamina o solo, a água e o ar, prejudicando toda a cadeia alimentar."},
-    {"palavra": "CHUVA", "contexto": "Precipitação de água em forma líquida. Essencial para a manutenção dos ecossistemas, o ciclo das chuvas está diretamente ligado à preservação das florestas."},
-    {"palavra": "FAUNA", "contexto": "Conjunto de espécies animais de uma região. A fauna brasileira é a mais diversa do mundo, com mais de 100 mil espécies, muitas em risco de extinção."},
-    {"palavra": "FLORA", "contexto": "Conjunto de espécies vegetais de uma determinada região. A flora garante o equilíbrio dos ecossistemas, fornecendo alimento e abrigo para a fauna."},
-    {"palavra": "OZONIO", "contexto": "Gás que forma a camada protetora da Terra contra a radiação ultravioleta do Sol. A destruição desta camada por poluentes como os CFCs representa grave risco à saúde."},
-    {"palavra": "SOLO", "contexto": "Camada superficial da Terra, lar de incontáveis micro-organismos. A erosão e a degradação do solo ameaçam a produção de alimentos e a biodiversidade."},
-    {"palavra": "MARE", "contexto": "Movimentação periódica das águas oceânicas causada pela atração gravitacional. Os recifes de coral, ameaçados pelo aquecimento global, protegem as costas das marés extremas."},
-    {"palavra": "AGUA", "contexto": "Recurso natural essencial à vida. Apenas 3% da água do planeta é doce e acessível. Preservar mananciais e evitar o desperdício é um dever de todos."},
-    {"palavra": "POLUICAO", "contexto": "Introdução de substâncias nocivas no ambiente. A poluição do ar, da água e do solo é responsável por milhões de mortes prematuras por ano em todo o mundo."},
-    {"palavra": "ENERGIA", "contexto": "Capacidade de realizar trabalho ou produzir calor. A transição para fontes renováveis de energia, como solar e eólica, é essencial para frear as mudanças climáticas."},
-    {"palavra": "SECA", "contexto": "Período prolongado com precipitação abaixo da média. As secas se intensificam com o desmatamento e as mudanças climáticas, afetando a produção de alimentos e o abastecimento de água."},
-    {"palavra": "MATO", "contexto": "Vegetação nativa densa e emaranhada. O mato nativo abriga inúmeras espécies e tem papel fundamental na proteção do solo e no ciclo das águas."},
-    {"palavra": "RECICLAR", "contexto": "Processo de transformar resíduos em novos produtos. Reciclar reduz a extração de recursos naturais, o consumo de energia e o volume de lixo nos aterros sanitários."},
-    {"palavra": "OCEANO", "contexto": "Vasta extensão de água salgada que cobre cerca de 71% da superfície terrestre. Os oceanos regulam o clima global e produzem mais de metade do oxigênio que respiramos."},
-    {"palavra": "VENENO", "contexto": "Substância tóxica prejudicial a organismos vivos. O uso indiscriminado de agrotóxicos (venenos agrícolas) contamina o solo, os rios e ameaça polinizadores como as abelhas."},
-    {"palavra": "VERDE", "contexto": "Cor associada à natureza e à vida. O espaço verde nas cidades, como praças e parques, melhora a qualidade do ar, reduz o calor urbano e o bem-estar das pessoas."},
-    {"palavra": "RESERVA", "contexto": "Área protegida por lei para a conservação da natureza. As reservas ambientais são fundamentais para a preservação da biodiversidade e dos recursos hídricos."},
-    {"palavra": "SEMENTES", "contexto": "Estruturas reprodutivas das plantas que garantem a continuidade das espécies. Os bancos de sementes nativas são ferramentas essenciais para a restauração de ecossistemas degradados."},
-    {"palavra": "CARBONO", "contexto": "Elemento químico base da vida orgânica. O excesso de CO₂ (dióxido de carbono) na atmosfera, causado pela queima de combustíveis fósseis, intensifica o efeito estufa."},
-    {"palavra": "PESCA", "contexto": "Atividade de captura de peixes e outros organismos aquáticos. A sobrepesca e o uso de redes inadequadas ameaçam os estoques pesqueiros e o equilíbrio dos ecossistemas marinhos."},
-    {"palavra": "DEGELO", "contexto": "Processo de derretimento de geleiras e calotas polares. O degelo acelerado pelo aquecimento global eleva o nível do mar, ameaçando cidades costeiras e ilhas ao redor do mundo."},
-    {"palavra": "BRISA", "contexto": "Vento suave e agradável, geralmente de origem marítima. As brisas são uma das formas mais limpas de energia eólica, exploradas por turbinas costeiras de baixo impacto."},
-    {"palavra": "EROSAO", "contexto": "Desgaste do solo pela ação da água, do vento ou de agentes humanos. O desmatamento e o uso inadequado da terra aceleram a erosão, causando o empobrecimento do solo e o assoreamento dos rios."},
-    {"palavra": "PANTANAL", "contexto": "Maior planície alagável do mundo, localizada no centro-oeste do Brasil. O Pantanal é reconhecido como Patrimônio Natural da Humanidade pela Unesco e abriga uma das maiores biodiversidades do planeta."},
-    {"palavra": "CORAL", "contexto": "Animal marinho que forma recifes, verdadeiros berçários do oceano. O branqueamento dos corais causado pelo aquecimento das águas é um dos maiores desastres ecológicos do nosso tempo."},
-    {"palavra": "VENTO", "contexto": "Movimento do ar causado por diferenças de pressão atmosférica. O vento é uma fonte de energia renovável limpa e inesgotável, aproveitada por aerogeradores em fazendas eólicas."},
-    {"palavra": "RIO", "contexto": "Curso natural de água doce que flui entre margens. Os rios são veias do planeta, essenciais para o abastecimento humano, a irrigação e a manutenção dos ecossistemas terrestres."}
+  {
+    "palavra": "NATUREZA",
+    "contexto": "A base da vida. Na educação ambiental crítica, não é vista apenas como um 'recurso' a ser explorado, mas como parte integrada da existência humana e dos povos tradicionais."
+  },
+  {
+    "palavra": "CAPITAL",
+    "contexto": "Referência ao modelo económico capitalista. Os textos apontam este sistema de produção e consumo incessante como o principal motor da degradação ambiental e desigualdade."
+  },
+  {
+    "palavra": "JUSTICA",
+    "contexto": "Relativo à Justiça Ambiental, um movimento que procura equidade, combatendo a ideia de que as populações mais pobres devem suportar a maioria dos ónus e danos ambientais."
+  },
+  {
+    "palavra": "RACISMO",
+    "contexto": "Presente no conceito de 'Racismo Ambiental', que denuncia a exposição desproporcional de populações negras, indígenas e periféricas a lixeiras, poluição e desastres ecológicos."
+  },
+  {
+    "palavra": "QUILOMBO",
+    "contexto": "Comunidades tradicionais de resistência histórica. As suas práticas em áreas de floresta demonstram grande harmonia com a preservação e o uso sustentável da biodiversidade."
+  },
+  {
+    "palavra": "SABERES",
+    "contexto": "O conhecimento tradicional de grupos indígenas e quilombolas, fundamental por oferecer outras epistemologias e formas alternativas de relação com o meio ambiente."
+  },
+  {
+    "palavra": "POLITICA",
+    "contexto": "No âmbito da Ecologia Política, evidencia que a crise ambiental não é apenas um problema técnico ou natural, mas uma questão central de relações de poder e de classes."
+  },
+  {
+    "palavra": "CONFLITO",
+    "contexto": "Disputas socioambientais geradas pela apropriação desigual do território e dos recursos naturais por grandes empresas contra os modos de vida das populações locais."
+  },
+  {
+    "palavra": "CULTURA",
+    "contexto": "Os modos de vida e tradições de um povo. A valorização da cultura das comunidades tradicionais é essencial para práticas de educação ambiental emancipadoras e inclusivas."
+  },
+  {
+    "palavra": "DIALOGO",
+    "contexto": "Metodologia central na educação ambiental com raízes freirianas, que promove a troca horizontal de conhecimentos entre a escola, os educadores e a comunidade."
+  },
+  {
+    "palavra": "LUTAS",
+    "contexto": "Ações e movimentos sociais de resistência em que populações oprimidas defendem os seus territórios, as suas águas e o direito a um ambiente ecologicamente equilibrado."
+  },
+  {
+    "palavra": "CLASSE",
+    "contexto": "Conceito estrutural nas análises críticas: evidencia que a desigualdade social dita quem usufrui das riquezas naturais e quem sofre com os impactos da degradação."
+  },
+  {
+    "palavra": "CRISE",
+    "contexto": "A crise socioambiental contemporânea, alertada por cientistas e pensadores, sendo o resultado de relações destrutivas do ser humano com os ecossistemas globais."
+  },
+  {
+    "palavra": "TERRITORIO",
+    "contexto": "Espaço geográfico, cultural e espiritual vital para a reprodução física e identitária dos povos indígenas e quilombolas, frequentemente alvo de invasões."
+  },
+  {
+    "palavra": "INDIGENA",
+    "contexto": "Povos originários cujas práticas e saberes ancestrais (como o Bem Viver) oferecem alternativas cruciais e sustentáveis face ao colapso ambiental moderno."
+  },
+  {
+    "palavra": "EMANCIPACAO",
+    "contexto": "O grande objetivo da Educação Ambiental Crítica: formar cidadãos conscientes que lutem para libertar a sociedade das amarras da opressão sistémica e da exploração."
+  },
+  {
+    "palavra": "SOCIEDADE",
+    "contexto": "O conjunto das relações humanas. A sustentabilidade real exige uma transformação profunda nas bases da sociedade civil, mudando valores, leis e economias."
+  },
+  {
+    "palavra": "CIDADANIA",
+    "contexto": "A participação ativa e consciente das pessoas nas decisões sobre o ambiente local e global, essencial para a reivindicação de políticas públicas eficazes."
+  },
+  {
+    "palavra": "RESISTENCIA",
+    "contexto": "Ato constante das populações tradicionais e vulneráveis para manterem os seus modos de vida e os seus territórios contra a lógica de exploração hegemónica."
+  },
+  {
+    "palavra": "FLORESTA",
+    "contexto": "Ecossistema essencial para a regulação climática mundial, habitado e protegido há séculos por comunidades que dependem diretamente da sua preservação."
+  },
+  {
+    "palavra": "HEGEMONIA",
+    "contexto": "O poder e discurso dominante do sistema económico atual, que a educação ambiental crítica procura questionar, desconstruir e combater nas salas de aula."
+  },
+  {
+    "palavra": "SISTEMA",
+    "contexto": "Refere-se à estrutura produtiva e social global que impulsiona a mercantilização, transformando rios, florestas e até seres humanos em meras mercadorias."
+  },
+  {
+    "palavra": "POBREZA",
+    "contexto": "Fator social que agrava a vulnerabilidade aos riscos ambientais. Pessoas em situação de pobreza vivem frequentemente em áreas de risco, sofrendo de racismo ambiental."
+  },
+  {
+    "palavra": "ECOLOGIA",
+    "contexto": "Campo de estudo amplo. Na vertente da 'Ecologia Política', liga as dinâmicas naturais inseparavelmente às questões de justiça e organização social humana."
+  },
+  {
+    "palavra": "DIREITO",
+    "contexto": "O acesso a um meio ambiente saudável é um direito humano fundamental, frequentemente negado a comunidades periféricas devido à má gestão e injustiça ambiental."
+  },
+  {
+    "palavra": "CONSERVACAO",
+    "contexto": "Ação de proteger ecossistemas e a biodiversidade. Estudos provam que a conservação é mais eficaz quando aliada aos saberes e à presença dos povos tradicionais."
+  },
+  {
+    "palavra": "ALIENACAO",
+    "contexto": "O distanciamento imposto pelo modelo atual entre os seres humanos e a natureza, fazendo com que o indivíduo perca a noção de que faz parte integrante do ambiente."
+  },
+  {
+    "palavra": "TRADICAO",
+    "contexto": "Conjunto de crenças, práticas e valores passados de geração em geração que, em muitas culturas, mantêm um profundo respeito pelos ciclos da Terra."
+  },
+  {
+    "palavra": "IMPACTO",
+    "contexto": "As consequências nocivas e poluentes do modelo de desenvolvimento exploratório, que recaem de forma desigual sobre os países e grupos sociais mais vulneráveis."
+  },
+  {
+    "palavra": "RESIDUO",
+    "contexto": "Termo técnico para lixo ou sobras de processos. O seu descarte inadequado contamina zonas habitadas predominantemente por populações vítimas de injustiça ambiental."
+  }
+  {
+    "palavra": "CARTOGRAFIA",
+    "contexto": "Conceito utilizado pela autora Lucie Sauvé para mapear, agrupar e classificar as diferentes abordagens e correntes teóricas dentro da Educação Ambiental."
+  },
+  {
+    "palavra": "CORRENTES",
+    "contexto": "Termo que define as várias perspetivas e modelos pedagógicos em educação ambiental, que variam desde as visões mais conservadoras até às mais críticas e transformadoras."
+  },
+  {
+    "palavra": "AMBIENTALIZACAO",
+    "contexto": "Conceito do autor Henri Acselrad que descreve o processo histórico em que os movimentos sociais passam a adotar o discurso ambiental para legitimar as suas lutas por justiça."
+  },
+  {
+    "palavra": "BAILIQUE",
+    "contexto": "Referência direta à comunidade Quilombola de Bailique Centro, no Pará, estudada nos documentos como um exemplo vivo de resistência e de práticas de conservação."
+  },
+  {
+    "palavra": "YANOMAMI",
+    "contexto": "Povo indígena frequentemente citado. Os saberes de líderes como o xamã Davi Kopenawa oferecem epistemologias vitais e alternativas para a sustentabilidade global."
+  },
+  {
+    "palavra": "KAIOWA",
+    "contexto": "Subgrupo do povo Guarani mencionado nos textos, cujos processos próprios de ensino e relação com o território representam uma forte forma de resistência cultural."
+  },
+  {
+    "palavra": "EPISTEMOLOGIA",
+    "contexto": "Refere-se à teoria do conhecimento. Os autores defendem a urgência de incorporar 'outras epistemologias', baseadas nos saberes tradicionais, nas escolas e universidades."
+  },
+  {
+    "palavra": "HOLISTICA",
+    "contexto": "Perspetiva defendida na educação ambiental que compreende o mundo de forma integrada, relacionando o homem, a natureza e o universo como um todo interdependente."
+  },
+  {
+    "palavra": "REPRODUCAO",
+    "contexto": "No contexto crítico (como em Layrargues), questiona-se o papel da educação tradicional na 'reprodução' das desigualdades sociais e do modelo de desenvolvimento destrutivo."
+  },
+  {
+    "palavra": "ANCESTRAL",
+    "contexto": "Relativo aos conhecimentos, memórias e tradições dos povos originários e quilombolas. A ancestralidade é tida como a condição primeira para o ato educativo nestas comunidades."
+  },
+  {
+    "palavra": "COMPLEXIDADE",
+    "contexto": "Conceito frequentemente associado ao pensador Enrique Leff nos textos, essencial para compreender a crise ambiental para além do reducionismo da ciência clássica."
+  },
+  {
+    "palavra": "DESIGUALDADE",
+    "contexto": "Problema central abordado nos textos sobre compromisso social. Evidencia-se que a educação ambiental falha se ignorar a necessidade de superação das assimetrias sociais."
+  },
+  {
+    "palavra": "GUAPORE",
+    "contexto": "Referência ao rio e vale do Guaporé, local de estudos sobre resistência socioambiental, direitos humanos e sobrevivência de comunidades tradicionais na floresta."
+  },
+  {
+    "palavra": "DIALOGICA",
+    "contexto": "Referente à pedagogia do diálogo (inspirada em Paulo Freire). É a base metodológica para uma educação ambiental emancipatória com os povos tradicionais."
+  }
+  {
+    "palavra": "NATURALISTA",
+    "contexto": "Corrente focada no contato direto com o meio natural. Acredita que a educação deve ocorrer 'na' e 'pela' natureza para gerar laços afetivos e respeito."
+  },
+  {
+    "palavra": "RECURSISTA",
+    "contexto": "Também chamada de conservacionista, esta corrente foca na gestão e uso racional dos recursos naturais, vendo a natureza como um capital a ser gerido."
+  },
+  {
+    "palavra": "RESOLUTIVA",
+    "contexto": "Corrente que concentra a ação educativa em identificar um problema ambiental específico e desenvolver soluções práticas para o resolver."
+  },
+  {
+    "palavra": "SISTEMICA",
+    "contexto": "Abordagem que analisa o ambiente como um sistema complexo. Foca em compreender as inter-relações entre os elementos ecológicos, sociais e económicos."
+  },
+  {
+    "palavra": "CIENTIFICA",
+    "contexto": "Corrente que enfatiza a observação rigorosa, o método experimental e o conhecimento ecológico objetivo para compreender as dinâmicas ambientais."
+  },
+  {
+    "palavra": "HUMANISTA",
+    "contexto": "Abordagem que valoriza o ambiente humano, as paisagens culturais e a arquitetura, vendo o meio ambiente como o 'lar' e a identidade de um grupo."
+  },
+  {
+    "palavra": "MORAL",
+    "contexto": "Corrente ética que foca no desenvolvimento de valores em relação ao meio ambiente, propondo um código de conduta mais responsável para com a Terra."
+  },
+  {
+    "palavra": "BIORREGIONAL",
+    "contexto": "Corrente que foca na educação voltada para a 'biorregião' de pertença do indivíduo, valorizando o conhecimento local, a comunidade e os ciclos daquela área."
+  },
+  {
+    "palavra": "PRAXICA",
+    "contexto": "Abordagem baseada na pesquisa-ação. A aprendizagem ocorre na prática (práxis), onde a reflexão e a ação conjunta visam transformar o meio social e ambiental."
+  },
+  {
+    "palavra": "CRITICA",
+    "contexto": "Corrente que analisa as relações de poder e de classe. Foca em desconstruir os modelos socioeconómicos hegemónicos que geram exclusão e poluição."
+  },
+  {
+    "palavra": "FEMINISTA",
+    "contexto": "Corrente ecofeminista que faz o paralelo entre a dominação e exploração da natureza e a opressão patriarcal sobre as mulheres e grupos marginalizados."
+  },
+  {
+    "palavra": "ETNOGRAFICA",
+    "contexto": "Abordagem que valoriza a dimensão cultural, estudando como diferentes comunidades (especialmente povos tradicionais) interagem e concebem o seu ambiente."
+  }
 ]
